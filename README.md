@@ -18,6 +18,7 @@ The dataset in particular consists of 3 csv.-files:
 - listings.csv
 - reviews.csv
 - calendar.csv
+
 Though, the main data analysis was made on the listings.csv data, because it also includes metrics related to reviews and availability that can be found in the other two files.
 
 ## Business questions
