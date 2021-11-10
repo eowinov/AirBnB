@@ -14259,7 +14259,7 @@ a.anchor-link {
 <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -14731,13 +14731,19 @@ a.anchor-link {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h4 id="Columns-with-more-than-one-NULL-value">Columns with more than one NULL value<a class="anchor-link" href="#Columns-with-more-than-one-NULL-value">&#182;</a></h4>
 </div>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We can see that there is one column 'licence', which is completely NULL. In three other columns 'square_feet', 'monthly_price' and 'security_deposit' more than half of the number of values are missing. There are also several columns (i.e. 'bathrooms', 'bedrooms',..) where only a small fraction of less than 1% of the values are missing. We will see in the function below, how to handle columns with many and only a few missing values and what to apply to the other columns.</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">listings</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()[</span><span class="n">listings</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">listings</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()[</span><span class="n">listings</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">listings</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14753,58 +14759,58 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 
 
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>beds                              1
-property_type                     1
-host_identity_verified            2
-host_has_profile_pic              2
-host_total_listings_count         2
-host_name                         2
-host_since                        2
-host_listings_count               2
-host_picture_url                  2
-host_thumbnail_url                2
-host_is_superhost                 2
-bedrooms                          6
-zipcode                           7
-host_location                     8
-bathrooms                        16
-summary                         177
-host_neighbourhood              300
-xl_picture_url                  320
-medium_url                      320
-thumbnail_url                   320
-neighbourhood                   416
-host_response_rate              523
-host_response_time              523
-space                           569
-last_review                     627
-first_review                    627
-reviews_per_month               627
-review_scores_rating            647
-review_scores_communication     651
-review_scores_cleanliness       653
-review_scores_location          655
-review_scores_value             656
-review_scores_checkin           658
-review_scores_accuracy          658
-host_acceptance_rate            773
-host_about                      859
-transit                         934
-cleaning_fee                   1030
-neighborhood_overview          1032
-notes                          1606
-weekly_price                   1809
-security_deposit               1952
-monthly_price                  2301
-square_feet                    3721
-license                        3818
-dtype: int64</pre>
+<pre>license                        1.000000
+square_feet                    0.974594
+monthly_price                  0.602672
+security_deposit               0.511262
+weekly_price                   0.473808
+notes                          0.420639
+neighborhood_overview          0.270299
+cleaning_fee                   0.269775
+transit                        0.244631
+host_about                     0.224987
+host_acceptance_rate           0.202462
+review_scores_accuracy         0.172342
+review_scores_checkin          0.172342
+review_scores_value            0.171818
+review_scores_location         0.171556
+review_scores_cleanliness      0.171032
+review_scores_communication    0.170508
+review_scores_rating           0.169460
+last_review                    0.164222
+first_review                   0.164222
+reviews_per_month              0.164222
+space                          0.149031
+host_response_rate             0.136983
+host_response_time             0.136983
+neighbourhood                  0.108958
+xl_picture_url                 0.083814
+medium_url                     0.083814
+thumbnail_url                  0.083814
+host_neighbourhood             0.078575
+summary                        0.046359
+bathrooms                      0.004191
+host_location                  0.002095
+zipcode                        0.001833
+bedrooms                       0.001572
+host_has_profile_pic           0.000524
+host_total_listings_count      0.000524
+host_listings_count            0.000524
+host_picture_url               0.000524
+host_thumbnail_url             0.000524
+host_is_superhost              0.000524
+host_since                     0.000524
+host_name                      0.000524
+host_identity_verified         0.000524
+beds                           0.000262
+property_type                  0.000262
+dtype: float64</pre>
 </div>
 
 </div>
@@ -14864,7 +14870,7 @@ dtype: int64</pre>
 <li><strong>clean_listings (listings, column_names)</strong></li>
 </ol>
 <p>We detected columns that are categorical but do not contain the items itself, but lists of items. We want to clean this columns and provide clear information which row contains which item. Moreover we detected several date columns that are stored as strings. To make use of these columns in the model we want to extract the year out of the dates and store it as a numerical value.</p>
-<p>We saw above, that we have several columns containing null values and we want to have a useful approach to get rid of nulls.</p>
+<p>We saw above, that we have several columns containing null values and we want to have a useful approach to get rid of nulls. Here we distinguish between the number of NULL values in a column. If there is less than 1% NULL values, we drop the rows where these particular column values are NULL. If more than 50% of the values in a column are NULL, we drop the whole column, because it does not provide any useful information for our prediction. If we have a number of NULLs somewhere in between we impute the values with the mode() strategy.</p>
 <p>In the end we want to bring all together and generate a new clean listings dataset.</p>
 
 </div>
@@ -15185,6 +15191,12 @@ Name: host_since, dtype: object</pre>
 
 </div>
 
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h4 id="Missing-values">Missing values<a class="anchor-link" href="#Missing-values">&#182;</a></h4><p>In this step we <strong>handle missing values</strong>, by dropping rows if the number of missing values is lower than 1% of all values in the particular column. If the half of the number of values in a column are missing, we drop the whole column. Otherwise we impute the missing values by using the mode() of the column.</p>
+
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
